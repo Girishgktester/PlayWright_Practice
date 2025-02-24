@@ -13,7 +13,7 @@ const config = defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report', open: 'always' }]],
   use: {
     browserName: 'firefox',   // Use Chromium engine for Edge
-    headless : false
+    headless : true
   },
 });
 
