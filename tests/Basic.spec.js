@@ -1,21 +1,23 @@
-const { test } = require('@playwright/test')
+const { test, expect } = require('@playwright/test')
 
 
 test('First playwright testcase', async function ({ browser }) {
 
-
     let context = await browser.newContext();
-
     let page = await context.newPage();
 
     await page.goto("https://letcode.in/")
-
 });
 
 
-test.only(' only run this  testcase', async function ({ page }) {
+test(' only run this  testcase', async function ({ page }) {
 
+    await page.goto("https://google.in/")
 
-    await page.goto("https://letcode.in/")
+    let titles =  await page.title();
+
+    console.log(titles);
+
+  await  expect(page).toHaveTitle('Google')
 
 }); 
