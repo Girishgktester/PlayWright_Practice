@@ -23,6 +23,7 @@ test('Automate static dropdowns', async function ({ page }) {
     await popup.click();
     await expect(radioButton).toBeChecked();
 
+    //toBeFalsy
     await agree.check();
     await agree.uncheck();
 
