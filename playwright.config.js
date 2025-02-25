@@ -10,10 +10,10 @@ const config = defineConfig({
   expect: {
     timeout: 40 * 1000,
   },
-  reporter: [['html', { outputFolder: 'playwright-report', open: 'always' }]],
+  reporter: [['html', { outputFolder: 'playwright-report', open: 'none' }]],
   use: {
-    browserName: 'firefox',   // Use Chromium engine for Edge
-    headless : true
+    browserName: 'chromium',   // Use Chromium engine for Edge
+    headless : false
   },
 });
 
