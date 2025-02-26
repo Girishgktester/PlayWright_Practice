@@ -27,6 +27,9 @@ test('Automate static dropdowns', async function ({ page }) {
     await agree.check();
     await agree.uncheck();
 
+    console.log(await page.locator(".blinkingText").textContent())
+    await expect(page.locator(".blinkingText")).toHaveAttribute("class","blinkingText");
+
     await loginButton.click();
 
 });
