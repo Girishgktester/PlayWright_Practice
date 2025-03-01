@@ -67,4 +67,4 @@ test.only(' Syncs', async function ({ page }) {
 
   console.log(names);
 
-});
+});  
