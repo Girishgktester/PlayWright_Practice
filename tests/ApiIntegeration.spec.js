@@ -1,27 +1,49 @@
 
-const { test, expect } = require('@playwright/test');
+const { test, expect, request } = require('@playwright/test');
 const { text } = require('stream/consumers');
 
+const loginPayload = { userEmail: "anshika@gmail.com", userPassword: "Iamking@000" }
+
+let authToken;
+
+//https://rahulshettyacademy.com/api/ecom/auth/login
+//anshika@gmail.com
+//Iamking@000
+test.beforeAll(async () => {
+
+    const apiContext = await request.newContext();
+
+    const loginResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", {
+        data: loginPayload
+    });
+
+    // Validate response status
+    expect(loginResponse.ok()).toBeTruthy();
+
+    const responseBody = await loginResponse.json();
+    console.log("Login Response:", responseBody);
 
 
+    authToken = responseBody.token;
+    console.log("Auth Token:", authToken);
 
-test("Practice PW ", async ({ page }) => {
+});
 
-    const userName = page.locator("#userEmail");
-    const password = page.locator("#userPassword");
-    const loginButton = page.locator("#login");
+test("API Integeration part 1 ", async ({ page }) => {
+
     const errorText = page.locator(".error");
     const phoneNames = page.locator(".card-body");
     const productNamezara = "ZARA COAT 3"
 
-    await page.goto("https://rahulshettyacademy.com/client");
+
+
+    page.addInitScript(value => {
+
+        window.localStorage.setItem('token', value);
+    }, authToken)
 
     let productNames = 'anshika@gmail.com'
-
-    await userName.fill(productNames);
-    await password.fill("Iamking@000");
-
-    await loginButton.click();
+    await page.goto("https://rahulshettyacademy.com/client");
 
     await page.waitForLoadState('networkidle');
     const titless = await page.locator(".card-body b").allTextContents();
@@ -64,7 +86,7 @@ test("Practice PW ", async ({ page }) => {
     await page.locator("input[placeholder='Select Country']").waitFor();
 
 
-    await page.locator("[placeholder*='Country']").fill("ind");
+    await page.locator("[placeholder*='Country']").pressSequentially("ind");
 
     const dropdown = page.locator(".ta-results");
 
@@ -90,8 +112,5 @@ test("Practice PW ", async ({ page }) => {
 
     const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
     console.log(orderId);
-
-
-
 
 });  

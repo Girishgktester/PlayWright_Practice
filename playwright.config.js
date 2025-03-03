@@ -13,7 +13,9 @@ const config = defineConfig({
   reporter: [['html', { outputFolder: 'playwright-report', open: 'none' }]],
   use: {
     browserName: 'chromium',   // Use Chromium engine for Edge
-    headless : false
+    headless : false,
+    screenshot: 'on',
+    trace: 'retain-on-failure'
   },
 });
 
