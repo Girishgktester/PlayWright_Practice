@@ -4,8 +4,11 @@ const { text } = require('stream/consumers');
 const { LoginPage } = require('./pageobjects/LoginPage');
 const { Dashboardpage } = require('./pageobjects/Dashboardpage');
 const { Products}   = require('./pageobjects/Products');
+// const {TestData} = require('../utils/TestData.json');
+const dataSet =  JSON.parse(JSON.stringify (require('../utils/TestData.json')));
 
 
+// covert Json to string , string to JS objetc
 
 test("Practice PW ", async ({ page }) => {
 
@@ -19,7 +22,7 @@ test("Practice PW ", async ({ page }) => {
 
     const loginpage = new LoginPage(page);
    await loginpage.navigateT();
-   await loginpage.validlogin();
+   await loginpage.validlogin(dataSet.username,dataSet.passowrd);
 
     const dashboardpage = new Dashboardpage(page);
     await  dashboardpage.addtocart(productNamezara);

@@ -12,11 +12,10 @@ class LoginPage {
     }
 
 
-    async validlogin() {
-        let productNames = 'anshika@gmail.com'
+    async validlogin(username, password) {
 
-        await this.userName.fill(productNames);
-        await this.password.fill("Iamking@000");
+        await this.userName.fill(username);
+        await this.password.fill(password);
 
         await this.loginButton.click();
 
