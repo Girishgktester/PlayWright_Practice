@@ -1,64 +1,28 @@
-
 const { test, expect, request } = require('@playwright/test');
-const { text } = require('stream/consumers');
+const { APIutils } = require('./utils/APIutils');  // ✅ Import APIutils correctly
 
-const loginPayload = { userEmail: "anshika@gmail.com", userPassword: "Iamking@000" }
+const loginPayload = { userEmail: "anshika@gmail.com", userPassword: "Iamking@000" };
+const orderPayload = { orders: [{ country: "Bahrain", productOrderedId: "67a307e8e2b5443b1f48196f" }] };
+let response;
 
-const orderPayLoad = {orders: [{country: "Bahrain", productOrderedId: "67a307e8e2b5443b1f48196f"}]}
-let orderID;
-let authToken;
-
-//https://rahulshettyacademy.com/api/ecom/auth/login
-//anshika@gmail.com
-//Iamking@000
 test.beforeAll(async () => {
-
     const apiContext = await request.newContext();
+    const apiUtils = new APIutils(apiContext);
 
-    const loginResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", {
-        data: loginPayload
-    });
-
-    expect(loginResponse.ok()).toBeTruthy();
-
-    const responseBody = await loginResponse.json();
-    console.log("Login Response:", responseBody);
-    authToken = responseBody.token;
-    console.log("Auth Token:", authToken);
-
-    const createOrderAPI = await apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order", 
-    {
-        data: orderPayLoad,
-        headers:{
-
-                'Authorization': authToken,
-                'Content-Type': 'application/json'
-        },
-    })
-
-    const orderapiResponse = await createOrderAPI.json();
-    console.log("Order API Response:", orderapiResponse);
-
-    // Extract order ID correctly
-    orderID = orderapiResponse.orders[0];
-    console.log("Order ID:", orderID);
-
+    response = await apiUtils.createOrder(loginPayload, orderPayload);
 });
 
-test("API Integeration part 1 ", async ({ page }) => {
+test("API Integration - Part 1", async ({ page }) => {
+    if (!response || !response.authToken) {
+        throw new Error("Auth Token is undefined. Check API response.");
+    }
 
-    const errorText = page.locator(".error");
-    const phoneNames = page.locator(".card-body");
-    const productNamezara = "ZARA COAT 3"
+    console.log("Using Auth Token in UI Test:", response.authToken);
 
-    page.addInitScript(value => {
+    page.addInitScript(token => {
+        window.localStorage.setItem('token', token);
+    }, response.authToken);
 
-        window.localStorage.setItem('token', value);
-    }, authToken)
-
-    let productNames = 'anshika@gmail.com'
     await page.goto("https://rahulshettyacademy.com/client");
-
-    await page.getByText("  ORDERS").click();
-    
-});  
+    await page.getByText("ORDERS").click();
+});
