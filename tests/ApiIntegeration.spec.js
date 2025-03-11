@@ -1,5 +1,5 @@
 const { test, expect, request } = require('@playwright/test');
-const { APIutils } = require('./utils/APIutils');  // ✅ Import APIutils correctly
+const { APIutils } = require('../utils/APIutils');  // ✅ Import APIutils correctly
 
 const loginPayload = { userEmail: "anshika@gmail.com", userPassword: "Iamking@000" };
 const orderPayload = { orders: [{ country: "Bahrain", productOrderedId: "67a307e8e2b5443b1f48196f" }] };
