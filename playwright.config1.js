@@ -6,6 +6,9 @@ import { defineConfig, devices } from '@playwright/test';
  */
 const config = defineConfig({
   testDir: './tests',
+  retries: 2,
+  workers: 2,
+
   timeout: 40 * 1000,
   expect: {
     timeout: 40 * 1000,
@@ -27,6 +30,7 @@ const config = defineConfig({
         colorScheme: 'dark',
         video: 'retain-on-failure',
         ...devices['Pixel 5'] //
+
       },
     },
     {
@@ -35,7 +39,8 @@ const config = defineConfig({
         browserName: 'firefox',
         headless: false,
         screenshot: 'on',
-        trace: 'retain-on-failure'
+        trace: 'retain-on-failure',
+
       },
     },
     {
