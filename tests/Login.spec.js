@@ -4,7 +4,7 @@ test("Login to OrangeHRM", async ({ page }) => {
 
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-    await page.getByPlaceholder("Username").fill("Admin",{delay:200});
+    await page.getByPlaceholder("Username").fill("Admin", { delay: 200 });
     await page.getByPlaceholder("Password").fill("admin123");
 
     await page.locator("button[type='submit']").click();
@@ -19,4 +19,16 @@ test("Login to OrangeHRM", async ({ page }) => {
 
     await expect(page.locator(".oxd-userdropdown-tab")).toBeVisible();
 
+});
+
+
+test.only("GetText examples", async ({ page }) => {
+
+    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+
+    const username = await page.locator("div[class='orangehrm-login-error'] p:nth-child(1)").textContent();
+
+    expect(username.includes("Username : Admin"));
+
+    
 });
