@@ -1,0 +1,94 @@
+
+#  ✅ **Selenium WebDriver: From Basics to Advanced** ✅ 
+
+##  📌 **Module 1: Introduction & Fundamentals** 
+
+- **Basic WebDriver Commands**
+  - Browser Commands (launch, navigate, close, etc.) ✅
+  -Finding Elements (using various locator strategies) ✅
+  - Web Element Commands (click, sendKeys, clear, etc.)
+
+## 📌 **Module 2: Mastering Locators & XPath** 
+- **Element Inspection & Basic Locators**
+  - Inspecting Elements in the Browser
+  - Using basic locators: **ID**, **Name**, **Class Name**, **CSS Selectors**, **LinkText**
+
+
+## 📌 **Module 3: Basic Element Interactions** 
+
+- **Handling Common UI Elements**
+  - Check Boxes & Radio Buttons
+  - Drop Down & Multiple Selects
+  - Web Table Handling
+  - Alerts & Browser Windows
+  - Frames
+
+## 📌 **Module 4: Advanced Locator Strategies** 
+- **Crafting Customized Locators**
+  - Building Customized XPath and CSS Selectors Based on HTML Attributes
+  - Generating XPath Based on Button Texts and Unique Tag Names
+- **  s**
+  - Parent-to-Child & Sibling Traversal with XPath
+  - Traversing from Child to Parent Elements
+- **Dynamic Element Identification**
+  - Parsing Strings with Java to extract dynamic data
+  - Cross-Browser Inspection Techniques (Edge, Firefox)
+
+
+## 📌 **Module 5: Synchronization & Waits**
+- **Understanding Wait Mechanisms**
+  - **Implicit Wait:** Basics and real-time scenarios
+  - **Explicit Wait:** Implementation and practical examples
+  - **Fluent Wait:** Advantages and building customized wait methods
+
+## 📌 **Module 6: User Interactions & Actions** 
+- **Advanced User Interaction Techniques**
+  - **Actions Class:**
+    - Drag & Drop
+    - Right Click & Double Click
+    - Mouse Hover
+  - **Robot Class:**
+    - Simulating Keyboard and Mouse Events Beyond WebDriver Capabilities
+- **Handling Complex AJAX & Mouse Interactions**
+
+## 📌 **Module 7: Windows, Frames & Browser Navigation** 
+- **Window Handling**
+  - Automating Browser Navigation and Window Properties
+  - Managing Multiple Windows and Child Windows
+- **Frame Handling**
+  - Techniques for Working with Frames
+  - Real-Time Frame Handling Examples and Assignments
+
+## 📌 **Module 8: Working with Advanced Web Elements** 
+- **Dropdowns and AutoSuggest**
+  - Handling **Static Dropdowns** with the Select API
+  - Handling **Dynamic Dropdowns** and looping techniques
+  - Managing **AutoSuggestive Dropdowns**
+- **UI Element Validations**
+  - Handling Checkboxes and counting elements
+  - Validating UI elements (enabled/disabled state)
+  - Working with Calendar UIs
+--
+## 📌 **Module 9: End-to-End Automation & Assertions** 
+- **Comprehensive Test Scenarios**
+  - Integrating multiple UI elements for complete test flows
+- **Assertions in Automation**
+  - Importance and use of Assertions in verifying test outcomes
+  - Implementing Soft Assertions for better test reporting
+---
+## 📌 **Module 10: Scrolling, Data Parsing & JavaScriptExecutor** 
+
+- **Advanced Scrolling Techniques**
+  - Performing scrolling within tables and at the window level using JavaScriptExecutor
+
+## 📌 **Module 11: Browser Configurations & Utilities** 
+- **Browser Configuration**
+  - Handling HTTPS Certifications in Automated Browsers
+  - Configuring Browser Options: Setting Proxies, Plugins, and Paths
+  - Maximizing Windows and Deleting Cookies
+  
+-📌 **Utility Functions** 📌
+  - Taking Screenshots in Selenium
+  - Automating Broken Links Validation:
+  - Using connection methods to check HTTP status codes
+  - Iterating over all links for validation

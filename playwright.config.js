@@ -7,6 +7,7 @@ import { defineConfig, devices } from '@playwright/test';
 const config = defineConfig({
   testDir: './tests',
   timeout: 40 * 1000,
+  
   expect: {
     timeout: 40 * 1000,
   },
@@ -14,8 +15,9 @@ const config = defineConfig({
   use: {
     browserName: 'chromium',   // Use Chromium engine for Edge
     headless : false,
-    screenshot: 'on',
-    trace: 'retain-on-failure'
+    screenshot: 'only-on-failure',
+    trace: 'retain-on-failure',
+    retries : 2
   },
 });
 
