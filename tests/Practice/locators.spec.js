@@ -77,6 +77,3 @@ test("Playwright built in Locators continued", async ({ page }) => {
     //  const getlabel = await page.getByLabel("Username").textContent()
     //  console.log("getlabel ---->"+getlabel)
 });
-
-
-
