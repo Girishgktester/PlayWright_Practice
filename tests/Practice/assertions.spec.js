@@ -40,7 +40,15 @@ test("Soft Assertions", async ({ page }) => {
     await expect.soft(page).toHaveTitle("STORE")
     await expect.soft(page).toHaveURL("https://demoblaze.com/")
 
+    await expect(async () => {
+        const button = await page.locator('#submit');
+        expect(await button.isVisible()).toBeTruthy();
+      }).toPass();
 
+      await expect(async () => {
+        const button = await page.locator('#proceed');
+        expect(await button.isEnabled()).toBeTruthy();
+      }).toPass({ timeout: 10000 }); // Retries for 10 seconds
 });
 
 
