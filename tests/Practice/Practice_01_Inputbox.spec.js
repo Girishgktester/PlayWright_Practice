@@ -33,3 +33,21 @@ test('Handle input box', async function ({ browser }) {
 
 
 });
+
+
+test('Handle Check box', async function ({ browser }) {
+
+    let context = await browser.newContext();
+    let page = await context.newPage();
+
+    await page.goto("https://testautomationpractice.blogspot.com/")
+
+    const checkbox1 = await page.getByRole('checkbox', {name:'sunday'})
+    await checkbox1.check();
+    await expect(checkbox1.isChecked()).toBeTruthy();
+    await expect(checkbox1).toBeChecked().toBeTruthy;
+    
+    const isChecked = await checkbox1.isChecked();
+    expect(isChecked).toBeTruthy();  // ✅ No need for .resolves
+
+});
