@@ -14,16 +14,16 @@ test('Auto suggestion dropdown', async ({ page }) => {
 
     for (let i = 0; i < cities.length; i++) {
 
-    const citynames = await cities[i].textContent();
+        const citynames = await cities[i].textContent();
 
-    console.log(citynames)
+        console.log(citynames)
 
-    if(citynames.includes('Gulbarga Bypass')){
-        await  cities[i].click()
-        break;
-    }
+        if (citynames.includes('Gulbarga Bypass')) {
+            await cities[i].click()
+            break;
+        }
 
-    await page.waitForTimeout(3000);
+        await page.waitForTimeout(3000);
     }
 
 });
@@ -34,11 +34,11 @@ test('Hidden dropdown', async ({ page }) => {
 
     await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 
-    await page.getByRole('input', {name: 'username' })
+    await page.getByRole('input', { name: 'username' })
     await page.getByPlaceholder('Username').fill('admin')
     await page.getByPlaceholder('Password').fill('admin123')
 
-    await page.getByRole('button', {name:'Login'}).click()
+    await page.getByRole('button', { name: 'Login' }).click()
 
     await page.getByText('PIM').click();
     await page.waitForTimeout(1000);
@@ -49,13 +49,13 @@ test('Hidden dropdown', async ({ page }) => {
     const options = await page.$$("//div[@role='listbox']//span")
 
 
-for(let option of options){
+    for (let option of options) {
 
-   const roles =  await option.textContent();
+        const roles = await option.textContent();
 
 
-   console.log(roles)
-}
+        console.log(roles)
+    }
 
 
 });
