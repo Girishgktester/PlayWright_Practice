@@ -12,16 +12,14 @@ test('Alert handling', async function ({ page }) {
         expect(dialog.message()).toContain('I am an alert box!')
         await dialog.accept();
     })
-
     await page.getByRole("button", { name: 'Simple Alert' }).click();
-
 });
 
 
 test('Confirmation window handle input box', async function ({ page }) {
 
     await page.goto("https://testautomationpractice.blogspot.com/")
-
+    
     page.on('dialog', async dialog => {
         expect(dialog.type()).toContain('confirm')
         expect(dialog.message()).toContain('Press a button!')
@@ -29,7 +27,6 @@ test('Confirmation window handle input box', async function ({ page }) {
     })
 
     await page.getByRole("button", { name: 'Confirmation Alert' }).click();
-
 });
 
 
