@@ -14,7 +14,6 @@ test('Multi select dropdown', async function ({ browser }) {
 
     const selectedOptions = await page.locator('#colors option:checked').allTextContents();
 
-    // Trim whitespace and sort both arrays before comparing
     const formattedOptions = selectedOptions.map(option => option.trim()).sort();
     const expectedOptions = ['Blue', 'Red', 'Yellow'].sort();
     
@@ -25,10 +24,7 @@ test('Multi select dropdown', async function ({ browser }) {
     
     await expect(selectedOptions1).toEqual(['Blue', 'Red', 'Yellow']);
 
-    const selectedOptionss = await page.locator('#colors option:checked').evaluateAll(options =>
-        options.map(option => option.textContent.trim()).sort()
-    );
-    
-    await expect(selectedOptionss).toEqual(['Blue', 'Red', 'Yellow'].sort());
+
+
 
 });
