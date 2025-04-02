@@ -17,7 +17,8 @@ const config = defineConfig({
     headless : false,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
-    retries : 2
+    retries : 2,
+    video : 'retry-with-video',
   },
 });
 
