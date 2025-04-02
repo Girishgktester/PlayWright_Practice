@@ -24,7 +24,6 @@ test('Hooks dropdown', async () => {
 });
 
 
-
 test('Add to cart ', async () => {
     await page.locator("//a[normalize-space()='Samsung galaxy s6']").click();
 
