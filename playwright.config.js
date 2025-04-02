@@ -7,6 +7,7 @@ import { defineConfig, devices } from '@playwright/test';
 const config = defineConfig({
   testDir: './tests',
   timeout: 40 * 1000,
+  fullyParallel : false,
   
   expect: {
     timeout: 40 * 1000,
@@ -19,6 +20,7 @@ const config = defineConfig({
     trace: 'retain-on-failure',
     retries : 2,
     video : 'retry-with-video',
+    prallel : ''
   },
 });
 
