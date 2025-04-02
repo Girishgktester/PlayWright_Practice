@@ -20,3 +20,8 @@ test('Test 4@sanity', async ({ page }) => {
 
     console.log("Test4")
 });
+
+test('Test5@sanity@regression', async ({ page }) => {
+
+    console.log("Test4")
+});
