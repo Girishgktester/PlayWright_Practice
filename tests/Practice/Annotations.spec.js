@@ -21,7 +21,7 @@ test.skip('This test will be skipped', async () => {
 test.fixme('Fix me ', async () => {
     await page.locator("//a[normalize-space()='Samsung galaxy s6']").click();
 
-    
+
 });
 
 test('This will fail ', async () => {
@@ -34,11 +34,8 @@ test('This will fail ', async () => {
 
 test('This test is slow ', async () => {
     await page.locator("//a[normalize-space()='Samsung galaxy s6']").click();
-
     test.slow();
-
 });
-
 
 
 
