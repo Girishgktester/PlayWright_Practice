@@ -41,4 +41,22 @@ test('Testcase 3 : Login with invalid credentials', async ({ page }) => {
 });
 
 
+test('Testcase 4 : Logout', async ({ page }) => {
+    await page.goto("https://automationexercise.com/");
 
+    const homepagetitle = await page.getByAltText("Website for automation practice");
+    expect(homepagetitle).toBeVisible();
+    await page.getByText(" Signup / Login").click();
+    expect(await page.getByText("Login to your account").textContent()).toBe("Login to your account")
+    const emailAddress = await page.getByPlaceholder("Email Address").first();
+    expect(emailAddress).toBeVisible();
+    emailAddress.fill("TestAE@gmail.com")
+    const password = await page.getByPlaceholder("Password");
+    await expect(password).toBeVisible();
+    password.fill("admin123")
+    await page.locator("button[data-qa='login-button']").click();
+
+    const logoutbutton = await page.getByText(" Logout");
+    expect(logoutbutton).toBeVisible();
+    logoutbutton.click();
+});
