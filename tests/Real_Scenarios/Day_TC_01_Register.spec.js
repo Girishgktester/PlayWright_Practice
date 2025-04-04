@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
-import exp from 'constants';
-import { execPath } from 'process';
+
 
 test("Test Case 1: Register User", async ({ page }) => {
 
@@ -72,7 +71,5 @@ test('Testcase 5: Register User with existing user', async ({page}) => {
     await page.getByRole("button", {name:'Signup'}).click();
 
     expect(await page.getByText("Email Address already exist!")).toBeVisible();
-
-
 
 });

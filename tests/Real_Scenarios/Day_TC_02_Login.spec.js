@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
-import exp from 'constants';
-import { execPath } from 'process';
+
 
 test("Test Case 1: Login with valid credenatials", async ({ page }) => {
 
