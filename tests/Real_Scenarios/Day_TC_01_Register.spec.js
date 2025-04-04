@@ -57,3 +57,22 @@ test("Test Case 1: Register User", async ({ page }) => {
     expect(sucessmessage).toHaveText("Account Created!")
 
 });
+
+
+test('Testcase 5: Register User with existing user', async ({page}) => {
+
+    await page.goto("https://automationexercise.com/")
+
+    await page.getByText(" Signup / Login").click();
+
+    await page.getByPlaceholder("Name").fill("TestAE@gmail.com");
+
+    await page.getByPlaceholder("Email Address").nth(1).fill("admin123@admin.com")
+
+    await page.getByRole("button", {name:'Signup'}).click();
+
+    expect(await page.getByText("Email Address already exist!")).toBeVisible();
+
+
+
+});
