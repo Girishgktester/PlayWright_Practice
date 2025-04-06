@@ -5,7 +5,6 @@ test('Testcase 11:  Verify Subscription in Cart page', async ({ page }) => {
 
     await page.getByText(" Cart").first().click({strict:true});
 
-
     await page.getByText("Subscription").scrollIntoViewIfNeeded();
 
     await page.getByPlaceholder('Your email address').fill("test@gmail.com");
