@@ -15,7 +15,7 @@ test("Test Case 1: Register User", async ({ page }) => {
     await page.getByPlaceholder("Name").fill("TestSite");
     const randomEmail = `test${Date.now()}@example.com`;
 
-    await page.locator("input[data-qa='signup-email']").fill("Test@tssest123W.com")
+    await page.locator("input[data-qa='signup-email']").fill("Test@Tester1.com")
     await page.locator("button[data-qa='signup-button']").click();
 
     expect(await page.getByText("Enter Account Information")).toBeVisible();
