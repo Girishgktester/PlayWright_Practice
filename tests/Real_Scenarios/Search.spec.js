@@ -6,7 +6,7 @@ test('Testcase 9: Search for product', async ({ page }) => {
 
     await page.locator("a[href='/products']").click();
 
-    const searchbox =  page.getByRole("textbox", {name:'Search Product'})
+    const searchbox = await page.getByRole("textbox", {name:'Search Product'})
 
     expect(searchbox).toBeVisible();
     searchbox.fill("Blue Top")
