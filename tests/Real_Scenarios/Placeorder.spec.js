@@ -34,22 +34,18 @@ test('Testcase 9: Add product to cart , login and place order', async ({ page })
 });
 
 
-test('Testcase 15:Place Order: Register before Checkout', async ({ page }) => {
+test('Testcase 15:Place Order: Login before Checkout', async ({ page }) => {
 
     await page.goto("https://automationexercise.com/");
     await page.getByText(" Signup / Login").click();
-
     await page.getByPlaceholder("Email Address").first().fill("Test@Tester1.com")
     await page.getByPlaceholder("Password").fill("Admin123")
     await page.locator("button[data-qa='login-button']").click();
-
-
     await page.locator('[data-product-id="1"]').first().hover();
     await page.locator('[data-product-id="1"]').first().click();
     await page.waitForTimeout(2000);
     await page.getByText("View Cart").first().click();
     await page.waitForTimeout(3000);
-    
     await page.getByText("Proceed To Checkout").click();
     await page.locator("textarea[name='message']").fill("Nice website for practicing automation");
     await page.getByText("Place Order").click();

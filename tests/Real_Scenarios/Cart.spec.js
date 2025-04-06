@@ -15,3 +15,20 @@ test('Testcase 11:  Verify Subscription in Cart page', async ({ page }) => {
 
    
 });
+
+
+test('Testcase 11:  Remove Products From Cart', async ({ page }) => {
+    await page.goto("https://automationexercise.com/");
+
+
+    await page.locator('[data-product-id="1"]').first().hover();
+    await page.locator('[data-product-id="1"]').first().click();
+    await page.waitForTimeout(2000);
+    await page.getByText("View Cart").first().click();
+
+    await page.locator('.cart_quantity_delete').click();
+
+    await expect(page.locator('p.text-center')).toHaveText("Cart is empty! Click here to buy products.");
+   
+});
+
