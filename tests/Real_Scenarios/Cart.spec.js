@@ -75,5 +75,11 @@ test('Testcase 19: View & Cart Brand Products', async ({ page }) => {
     await expect(page.getByText("Brand - Polo Products")).toBeVisible();
     await page.getByText("H&M").click();
     await expect(page.getByText("Brand - H&M Products")).toBeVisible();
+
+
+
+
+
+
 });
 
