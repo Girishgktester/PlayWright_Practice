@@ -1,21 +1,18 @@
 import { test, expect } from '@playwright/test';
 import exp from 'constants';
 
-test('Testcase 9: Search for product', async ({ page }) => {
-    await page.goto("https://automationexercise.com/");
+test('Testcase 1: Add/Remove Elements', async ({ page }) => {
+    await page.goto("https://the-internet.herokuapp.com/add_remove_elements/");
 
-    await page.locator("a[href='/products']").click();
+    const addElement = await page.locator("button[onclick='addElement()']");
 
-    const searchbox = await page.getByRole("textbox", {name:'Search Product'})
+    for (let i = 0; i < 10; i++) {
 
-    expect(searchbox).toBeVisible();
-    searchbox.fill("Blue Top")
+        await page.waitForTimeout(1000)
+        await addElement.click();
+        const deleteButtons = await page.$$('button', { hasText: 'Delete' })  // all buttons with "Delete" text
+        console.log("Number of Delete Buttons added per iteration" + deleteButtons.length)
 
-    await page.locator("#submit_search").click();
-
-    await expect(page.getByText("Searched Products")).toBeVisible();
-
-    await expect(page.locator("(//p[text()='Blue Top'])[2]")).toBeVisible();
-
+    }
 
 });
