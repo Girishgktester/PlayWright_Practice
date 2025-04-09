@@ -72,4 +72,12 @@ test('Move slider using click and drag', async ({ page }) => {
 });
 
 
+test('Testcase 5: Hovers', async ({ page }) => {
+    await page.goto("https://the-internet.herokuapp.com/hovers");
+
+    const hoverOne  =  await page.getByAltText("User Avatar").first();
+    await hoverOne.hover();
+   console.log(""+  await page.locator("(//div[@class='figcaption'])[1]").textContent())
+});
+
 
