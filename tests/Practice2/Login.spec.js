@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const testdata = JSON.parse(JSON.stringify(require("C:/Users/user/Documents/Playwright/utils/TestData.json")));
+// const testdata = JSON.parse(JSON.stringify(require("C:/Users/user/Documents/Playwright/utils/TestData.json")));
 
 
 test("Login to OrangeHRM", async ({ page }) => {

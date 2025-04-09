@@ -1,27 +1,26 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test'
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
 const config = defineConfig({
   testDir: './tests',
+  testIgnore: [
+    '**/ApiIntegration.spec.js',
+    '**/practice.spec.js',
+  ],
   timeout: 40 * 1000,
-  fullyParallel : false,
-  
+  fullyParallel: false,
   expect: {
     timeout: 40 * 1000,
   },
-  reporter: [['html', { outputFolder: 'playwright-report', open: 'none' }]],
+  reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    browserName: 'chromium',   // Use Chromium engine for Edge
-    headless : false,
+    browserName: 'chromium',
+    headless: false,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
-    retries : 2,
-    video : 'retry-with-video',
-    prallel : ''
+    retries: 2,
+    video: 'retry-with-video',
   },
-});
+})
 
-export default config;
+export default config
