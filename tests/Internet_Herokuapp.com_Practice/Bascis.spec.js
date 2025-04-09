@@ -27,3 +27,20 @@ test('Testcase 2: Checkboxes', async ({ page }) => {
     await expect(checkbox2).not.toBeChecked();
     await page.waitForTimeout(2000)
 });
+
+
+test('Testcase 3: Dropdown', async ({ page }) => {
+    await page.goto("https://the-internet.herokuapp.com/dropdown");
+
+    const dropdowns  =  await page.locator("#dropdown");
+
+    dropdowns.selectOption("1")
+
+    dropdowns.selectOption("Option 2")
+    
+    await page.waitForTimeout(5000)
+
+    
+});
+
+
