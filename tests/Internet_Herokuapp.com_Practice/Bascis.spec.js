@@ -3,6 +3,7 @@ import exp from 'constants';
 import fs from 'fs'; // ✅ Node.js file system module
 
 
+
 test('Testcase 1: Add/Remove Elements', async ({ page }) => {
     await page.goto("https://the-internet.herokuapp.com/add_remove_elements/");
     const addElement = await page.locator("button[onclick='addElement()']");
@@ -105,11 +106,13 @@ test('Testcase 6: File Download', async ({ page }) => {
 
     const filePathNew = path.join(downloadPath, await download.suggestedFilename());
     await download.saveAs(filePath);
-  
+
     console.log(`✅ File downloaded to: ${filePathNew}`);
-  
+
     // Wait until download is complete
     await download.path(); // Ensures file is fully downloaded before proceeding
 });
+
+
 
 
